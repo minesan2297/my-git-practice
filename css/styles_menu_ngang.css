@@ -1,0 +1,72 @@
+/* ========================================================
+   CSS MENU NGANG DROPDOWN (css/styles_menu_ngang.css)
+   ======================================================== */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#menu {
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+    border: 1px solid #CDCDCD;
+}
+
+#menu ul, 
+#menu li {
+    padding: 0;
+    margin: 0;
+}
+
+/* Cho các mục menu cấp 1 float sang trái để xếp thành hàng ngang */
+#menu li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Định dạng liên kết thẻ a cấp 1 */
+#menu li a {
+    width: 100px;
+    height: 30px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    background-color: black;
+    color: white;
+}
+
+/* Định dạng liên kết trong menu thả xuống cấp 2 rộng hơn */
+#menu ul ul li {
+    float: none; /* Các mục menu con xếp chồng theo chiều dọc */
+}
+
+#menu ul ul li a {
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Hiệu ứng hover đổi màu nền sang đỏ */
+#menu li a:hover {
+    background-color: red;
+}
+
+/* Danh sách con thả xuống theo chiều dọc, ẩn mặc định */
+#menu ul ul {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+/* Khi hover vào mục cha thì hiển thị danh sách con */
+#menu ul li:hover > ul {
+    visibility: visible;
+}
