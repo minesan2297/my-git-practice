@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Tạo layout với các thẻ HTML5 và CSS</title>
+    <link rel="stylesheet" href="css/styles_layout.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. Thẻ <header>: Tiêu đề và biểu ngữ trang web -->
+        <header>
+            <h1>Cổng Thông Tin Công Nghệ & Lập Trình</h1>
+            <p>Học tập và chia sẻ kiến thức thiết kế Web hiện đại với HTML5 & CSS</p>
+        </header>
+
+        <!-- 2. Thẻ <nav>: Thanh điều hướng chính -->
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#">Khóa Học</a></li>
+                <li><a href="#">Bài Viết</a></li>
+                <li><a href="#">Tài Liệu</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+            </ul>
+        </nav>
+
+        <!-- Khung chứa nội dung chính gồm Section và Aside -->
+        <div class="main-wrapper">
+            <!-- 3. Thẻ <section>: Khu vực chứa các bài viết chính -->
+            <section>
+                <!-- Thẻ <article>: Bài viết độc lập số 1 -->
+                <article>
+                    <h2>Lợi Ích Của Các Thẻ Ngữ Nghĩa (Semantic Tags) Trong HTML5</h2>
+                    <div class="meta">Đăng bởi: Admin • 12/10/2026 • Chuyên mục: Web Standards</div>
+                    <p>
+                        Trước khi HTML5 ra đời, các nhà phát triển web chủ yếu sử dụng thẻ &lt;div&gt; với các class hoặc id như header, content, footer để phân chia khu vực. Điều này gây khó khăn cho các công cụ tìm kiếm (SEO) và các thiết bị đọc màn hình hỗ trợ người khuyết tật (Accessibility).
+                    </p>
+                    <p>
+                        Với sự xuất hiện của các thẻ ngữ nghĩa như &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, và &lt;footer&gt;, cấu trúc tài liệu HTML trở nên mạch lạc, rõ ràng và chuẩn hóa theo tiêu chuẩn quốc tế của W3C.
+                    </p>
+                </article>
+
+                <!-- Thẻ <article>: Bài viết độc lập số 2 -->
+                <article>
+                    <h2>Bố Cục Trang Web Linh Hoạt Với CSS Flexbox</h2>
+                    <div class="meta">Đăng bởi: Giảng viên CodeGym • 12/10/2026 • Chuyên mục: Frontend CSS</div>
+                    <p>
+                        CSS Flexbox cung cấp một giải pháp mạnh mẽ và trực quan để sắp xếp các phần tử theo hàng ngang hoặc cột dọc mà không cần phải sử dụng các kỹ thuật cũ kỹ như float hay clearfix.
+                    </p>
+                    <p>
+                        Bằng cách kết hợp giữa các thẻ cấu trúc của HTML5 và Flexbox, trang web của bạn sẽ dễ dàng tự động co giãn và đáp ứng hoàn hảo (Responsive) trên mọi kích thước màn hình từ máy tính để bàn đến điện thoại thông minh.
+                    </p>
+                </article>
+            </section>
+
+            <!-- 4. Thẻ <aside>: Khu vực cột bên (Sidebar) chứa thông tin phụ -->
+            <aside>
+                <div class="widget">
+                    <h3>Chủ Đề Nổi Bật</h3>
+                    <ul>
+                        <li><a href="#">HTML5 &amp; Semantic Tags</a></li>
+                        <li><a href="#">CSS Box Model &amp; Flexbox</a></li>
+                        <li><a href="#">Responsive Web Design</a></li>
+                        <li><a href="#">JavaScript Căn Bản</a></li>
+                        <li><a href="#">Cơ Sở Dữ Liệu MySQL</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Thông Báo Mới</h3>
+                    <p style="font-size: 14px; color: #555;">
+                        Lớp học Lập trình Web Fullstack khai giảng vào ngày 15 hàng tháng. Đăng ký ngay để nhận ưu đãi!
+                    </p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 5. Thẻ <footer>: Chân trang chứa thông tin bản quyền -->
+        <footer>
+            <p>&copy; 2026 Cổng Thông Tin Lập Trình. Bản quyền thuộc về CodeGym Academy.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* ========================================================
+   CSS BỐ CỤC HTML5 LAYOUT (css/styles_layout.css)
+   ======================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f2f5;
+    color: #333333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* 1. Header */
+header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    padding: 35px 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* 2. Navigation bar */
+nav {
+    background-color: #24292e;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 22px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #0366d6;
+}
+
+/* 3. Main layout: Section (Left/Center) + Aside (Right) */
+.main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    gap: 25px;
+}
+
+section {
+    flex: 3;
+    min-width: 300px;
+}
+
+article {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+article h2 {
+    color: #1e3c72;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+article .meta {
+    font-size: 13px;
+    color: #6a737d;
+    margin-bottom: 14px;
+}
+
+article p {
+    text-align: justify;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+/* 4. Aside (Sidebar bên phải) */
+aside {
+    flex: 1;
+    min-width: 250px;
+}
+
+.widget {
+    background-color: #fafbfc;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.widget h3 {
+    color: #24292e;
+    font-size: 18px;
+    border-bottom: 2px solid #0366d6;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.widget ul {
+    list-style: none;
+}
+
+.widget ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #e1e4e8;
+}
+
+.widget ul li a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.widget ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 5. Footer */
+footer {
+    background-color: #24292e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 3px solid #0366d6;
+}
+
+/* Responsive cho thiết bị di động */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+}
