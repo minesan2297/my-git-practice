@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Nhúng CSS vào trang HTML</title>
+
+    <!-- ========================================== -->
+    <!-- PHẦN 3: EXTERNAL STYLE (Nhúng file CSS ngoài) -->
+    <!-- ========================================== -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- ========================================== -->
+    <!-- PHẦN 2: INTERNAL STYLE (Nhúng CSS trong thẻ style) -->
+    <!-- ========================================== -->
+    <style>
+        .internal-title {
+            color: purple;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .internal-text {
+            color: darkorange;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+
+    <!-- ========================================== -->
+    <!-- PHẦN 1: INLINE STYLE (Viết trực tiếp vào thẻ) -->
+    <!-- ========================================== -->
+    <section style="margin-bottom: 30px; padding: 15px; border-bottom: 2px dashed #ccc;">
+        <h2>1. Inline Style (CSS nội dòng)</h2>
+        <h1 style="color: blue; text-transform: uppercase;">Đây là tiêu đề dùng Inline Style</h1>
+        <p style="color: red; font-size: 18px;">Đây là đoạn văn bản được định dạng màu sắc trực tiếp qua thuộc tính style (Inline CSS).</p>
+    </section>
+
+    <!-- PHẦN 2: DEMO INTERNAL STYLE -->
+    <section style="margin-bottom: 30px; padding: 15px; border-bottom: 2px dashed #ccc;">
+        <h2>2. Internal Style (CSS nội bộ trong thẻ &lt;style&gt;)</h2>
+        <h1 class="internal-title">Đây là tiêu đề dùng Internal Style</h1>
+        <p class="internal-text">Đây là đoạn văn bản được định dạng thông qua CSS khai báo trong thẻ &lt;style&gt; ở phần &lt;head&gt;.</p>
+    </section>
+
+    <!-- PHẦN 3: DEMO EXTERNAL STYLE -->
+    <section style="margin-bottom: 30px; padding: 15px;">
+        <h2>3. External Style (CSS ngoại vi liên kết file ngoài)</h2>
+        <h1>Đây là tiêu đề dùng External Style</h1>
+        <p>Đây là đoạn văn bản được định dạng màu sắc từ file liên kết ngoài: css/styles.css.</p>
+    </section>
+
+</body>
+</html>
