@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Định dạng văn bản với CSS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid #2b6cb0;
+        }
+
+        /* 1. Định dạng tiêu đề chính */
+        h1.article-title {
+            color: #2b6cb0;
+            font-size: 32px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        /* 2. Định dạng thông tin tác giả / ngày đăng */
+        .article-meta {
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* 3. Đoạn dẫn dắt / tóm tắt (Lead paragraph) */
+        p.lead-text {
+            color: #1a202c;
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            line-height: 1.8;
+            text-align: justify;
+            border-left: 4px solid #cbd5e0;
+            padding-left: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* 4. Định dạng các đoạn văn bản chính */
+        p.content-paragraph {
+            color: #2d3748;
+            font-size: 17px;
+            line-height: 1.85;
+            text-align: justify;
+            text-indent: 30px; /* Thụt đầu dòng */
+            margin-bottom: 18px;
+        }
+
+        /* 5. Điểm nhấn trong văn bản */
+        .highlight {
+            color: #c53030;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* 6. Trích dẫn (Blockquote) */
+        .quote {
+            background-color: #edf2f7;
+            padding: 16px 24px;
+            border-radius: 4px;
+            color: #2c5282;
+            font-style: italic;
+            font-size: 18px;
+            text-align: center;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="article-container">
+        <h1 class="article-title">Nghệ Thuật Định Dạng Văn Bản Với CSS</h1>
+        <div class="article-meta">Tác giả: Ban Biên Tập • Ngày đăng: 12/10/2026</div>
+
+        <p class="lead-text">
+            CSS (Cascading Style Sheets) không chỉ là công cụ tạo màu sắc, mà còn là linh hồn của trải nghiệm đọc trên môi trường kỹ thuật số. Định dạng văn bản đúng chuẩn giúp nâng cao khả năng tiếp thu và giữ chân người đọc.
+        </p>
+
+        <p class="content-paragraph">
+            Trong thiết kế web hiện đại, việc sử dụng các thuộc tính như <span class="highlight">font-size</span>, <span class="highlight">text-align</span>, và <span class="highlight">text-indent</span> giúp bố cục tài liệu trở nên chuẩn mực như một trang sách in. Khả năng canh đều hai bên (justify) cùng với thụt lề đầu dòng tạo nên nét trang trọng, rõ ràng và chuyên nghiệp cho từng luận điểm.
+        </p>
+
+        <div class="quote">
+            "Typography tốt giúp người đọc hòa mình vào nội dung mà không bị phân tâm bởi giao diện."
+        </div>
+
+        <p class="content-paragraph">
+            Bên cạnh đó, việc phối hợp hài hòa giữa độ nghiêng chữ qua <span class="highlight">font-style</span> và khoảng cách dòng thích hợp giúp mắt không bị mỏi khi theo dõi các đoạn văn dài. Đó là lý do tại sao kỹ năng định dạng typography luôn là bước khởi đầu vững chắc cho bất kỳ nhà phát triển web nào.
+        </p>
+    </div>
+
+</body>
+</html>
