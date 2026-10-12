@@ -1,0 +1,319 @@
+/* ========================================================
+   CSS TRANG WEB PHIM HOẠT HÌNH TRỰC TUYẾN (css/styles_cartoon.css)
+   Cơ bản - Trung bình (Fixed Header, Link Hover) - Nâng cao (RWD)
+   ======================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7fafc;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* ========================================================
+   1. FIXED HEADER & LOGO (Trung bình: Giữ cố định khi cuộn)
+   ======================================================== */
+.top-nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: #ffffff;
+}
+
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 250px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* 2. HEAD-LINK (Thanh liên kết trang) */
+.head-link {
+    background-color: #2d3748;
+    padding: 0 28px;
+}
+
+.head-link ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.head-link ul li a {
+    display: block;
+    color: #edf2f7;
+    text-decoration: none; /* Bỏ gạch chân */
+    padding: 12px 18px;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+
+/* Trung bình: Link bôi đậm và chuyển màu khi hover/active */
+.head-link ul li a:hover,
+.head-link ul li a.active {
+    color: #ffd166;
+    font-weight: bold;
+    background-color: #1a202c;
+}
+
+/* ========================================================
+   3. CONTENT LAYOUT (Left Content vs Right Content)
+   ======================================================== */
+.container {
+    max-width: 1240px;
+    margin: 130px auto 40px; /* Chừa khoảng trống cho fixed header ở trên */
+    padding: 0 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 25px;
+}
+
+/* LEFT CONTENT (Menu danh sách video) */
+.left-content {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.left-title {
+    font-size: 18px;
+    color: #ff6b6b;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #fed7d7;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.video-list {
+    list-style: none;
+}
+
+.video-item {
+    margin-bottom: 12px;
+}
+
+.video-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none; /* Bỏ gạch chân */
+    color: #4a5568;
+    background-color: #f7fafc;
+    border: 1px solid #edf2f7;
+    transition: all 0.2s ease;
+}
+
+.video-thumb {
+    width: 60px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: cover;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fed7d7;
+}
+
+.video-info h4 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.video-info span {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+/* Trung bình: Hover / Active bôi đậm và đổi màu */
+.video-link:hover,
+.video-link.active {
+    background-color: #fff5f5;
+    border-color: #feb2b2;
+    color: #e53e3e;
+    font-weight: bold;
+    transform: translateX(4px);
+}
+
+/* RIGHT CONTENT (Khu vực xem video được chọn) */
+.right-content {
+    flex: 2.5;
+    min-width: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.player-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Tỉ lệ 16:9 chuẩn HD */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #000000;
+    margin-bottom: 20px;
+}
+
+.player-wrapper iframe,
+.player-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-player-info {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 15px;
+    margin-bottom: 16px;
+}
+
+.video-player-info h2 {
+    font-size: 22px;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.video-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #feebc8;
+    color: #c05621;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 15px;
+    margin-right: 8px;
+}
+
+.video-desc {
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Thẻ video HTML5 demo thứ 2 */
+.html5-video-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #edf2f7;
+}
+
+.html5-video-section h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #2b6cb0;
+}
+
+.html5-video-section video {
+    width: 100%;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* ========================================================
+   4. FOOTER
+   ======================================================== */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 14px;
+    border-top: 4px solid #ff6b6b;
+}
+
+footer p {
+    margin-bottom: 6px;
+}
+
+/* ========================================================
+   5. NÂNG CAO: RESPONSIVE WEB DESIGN (RWD)
+   ======================================================== */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column-reverse; /* Đưa video lên trên khi xem trên mobile/tablet */
+    }
+
+    .container {
+        margin-top: 150px;
+    }
+
+    .left-content,
+    .right-content {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-top {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .head-link ul {
+        justify-content: center;
+    }
+
+    .container {
+        margin-top: 190px;
+        padding: 0 10px;
+    }
+}

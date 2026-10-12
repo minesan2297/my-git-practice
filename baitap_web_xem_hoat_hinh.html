@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidToon - Thế Giới Phim Hoạt Hình Lành Mạnh Cho Trẻ Thơ</title>
+    <link rel="stylesheet" href="css/styles_cartoon.css">
+</head>
+<body>
+
+    <!-- ========================================================
+         PHẦN HEADER CỐ ĐỊNH & THANH LIÊN KẾT (FIXED HEADER)
+         ======================================================== -->
+    <div class="top-nav-fixed">
+        <!-- Phần Header có Logo bên trái và Tìm kiếm -->
+        <header class="header-top">
+            <a href="#" class="logo-brand">
+                <span class="logo-icon">🎬</span>
+                <span>KidToon HD</span>
+            </a>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm phim hoạt hình...">
+            </div>
+        </header>
+
+        <!-- Phần Head-link: Chứa các liên kết trang chính -->
+        <nav class="head-link">
+            <ul>
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#">Mới Cập Nhật</a></li>
+                <li><a href="#">Xem Nhiều Nhất</a></li>
+                <li><a href="#">Thuyết Minh Tiếng Việt</a></li>
+                <li><a href="#">Phim Giáo Dục Cổ Tích</a></li>
+                <li><a href="#">Liên Hệ &amp; Góp Ý</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ========================================================
+         PHẦN NỘI DUNG CHÍNH (CONTENT: LEFT & RIGHT CONTENT)
+         ======================================================== -->
+    <div class="container">
+        <main class="main-content">
+            
+            <!-- LEFT CONTENT: Menu chứa danh sách video có sẵn -->
+            <aside class="left-content">
+                <h3 class="left-title">Danh Sách Tuyển Chọn</h3>
+                <ul class="video-list">
+                    <li class="video-item">
+                        <a href="javascript:void(0)" class="video-link active" onclick="changeVideo('yt', 'https://www.youtube.com/embed/ScMzIvxBSi4', 'Big Buck Bunny - Thỏ Bự Nghịch Ngợm', 'Câu chuyện giáo dục về lòng tốt và tình bạn của chú thỏ mập trong khu rừng.', 'FullHD 1080p • Lồng Tiếng Việt')">
+                            <div class="video-thumb">🐰</div>
+                            <div class="video-info">
+                                <h4>Big Buck Bunny</h4>
+                                <span>1080p • 9.8 phút</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="javascript:void(0)" class="video-link" onclick="changeVideo('yt', 'https://www.youtube.com/embed/aqz-KE-bpKQ', 'Caminandes 3: Llamigos (Lạc Đà Lém Lỉnh)', 'Cuộc phiêu lưu hài hước của chú lạc đà vui tính Koro tranh giành quả dâu rừng.', 'HD 720p • Hoạt Hình Không Lời')">
+                            <div class="video-thumb">🦙</div>
+                            <div class="video-info">
+                                <h4>Caminandes: Llamigos</h4>
+                                <span>HD • 2.5 phút</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="javascript:void(0)" class="video-link" onclick="changeVideo('yt', 'https://www.youtube.com/embed/skbK_0a76g4', 'Sintel - Tình Bạn Của Cô Gái & Chú Rồng Nhỏ', 'Hành trình xúc động tìm kiếm người bạn rồng bị bắt cóc vượt ngàn dặm tuyết.', 'FullHD 1080p • Phụ Đề & Audio Việt')">
+                            <div class="video-thumb">🐉</div>
+                            <div class="video-info">
+                                <h4>Sintel - Tình Bạn Rồng</h4>
+                                <span>1080p • 15 phút</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="video-item">
+                        <a href="javascript:void(0)" class="video-link" onclick="changeVideo('html5', 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', 'For Bigger Blazes (Video Server HTML5)', 'Bản phim chuẩn phát trực tiếp từ máy chủ chống giật không quảng cáo.', 'Chuẩn Server • Không Quảng Cáo')">
+                            <div class="video-thumb">🔥</div>
+                            <div class="video-info">
+                                <h4>For Bigger Blazes (HTML5)</h4>
+                                <span>Direct Link • 15 giây</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- RIGHT CONTENT: Nội dung video được chọn trong menu -->
+            <section class="right-content">
+                
+                <!-- Khung trình chiếu chính sử dụng thẻ <iframe> (YouTube) hoặc <video> (HTML5) -->
+                <div class="player-wrapper" id="player-container">
+                    <iframe id="main-iframe" 
+                            src="https://www.youtube.com/embed/ScMzIvxBSi4" 
+                            title="Video Player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                    <video id="main-video" controls style="display: none;">
+                        <source id="video-source" src="" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+                    </video>
+                </div>
+
+                <!-- Thông tin chi tiết của video đang phát -->
+                <div class="video-player-info">
+                    <h2 id="video-title">Big Buck Bunny - Thỏ Bự Nghịch Ngợm</h2>
+                    <div>
+                        <span class="video-badge">Audio Việt Thuyết Minh</span>
+                        <span class="video-badge" style="background-color: #c6f6d5; color: #22543d;">Chuẩn FullHD 1080p</span>
+                        <span class="video-badge" style="background-color: #e2e8f0; color: #4a5568;" id="video-tag">Phim Giáo Dục</span>
+                    </div>
+                </div>
+
+                <div class="video-desc">
+                    <p id="video-desc-text">
+                        Phim hoạt hình 3D vui nhộn về thế giới động vật với chất lượng hình ảnh sắc nét, mang thông điệp giáo dục tích cực, dạy trẻ em yêu thương thiên nhiên và bảo vệ bạn bè. Hoàn toàn không chứa quảng cáo và nội dung bạo lực.
+                    </p>
+                </div>
+
+                <!-- Phần luyện tập bổ sung thẻ <video> HTML5 trực tiếp -->
+                <div class="html5-video-section">
+                    <h3>🎬 Trình Phát Video HTML5 Dự Phòng (Sử Dụng Thẻ &lt;video&gt;)</h3>
+                    <video controls poster="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                        Trình duyệt không hỗ trợ thẻ video HTML5.
+                    </video>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ========================================================
+         PHẦN FOOTER: THÔNG TIN BẢN QUYỀN
+         ======================================================== -->
+    <footer>
+        <p>&copy; 2026 KidToon. Kênh phim hoạt hình phi lợi nhuận vì sự phát triển toàn diện của trẻ thơ.</p>
+        <p>Cam kết 100% nội dung lành mạnh, Audio tiếng Việt chất lượng cao, không chứa quảng cáo.</p>
+    </footer>
+
+    <!-- Script tương tác chuyển video mượt mà khi bấm menu bên trái -->
+    <script>
+        function changeVideo(type, url, title, desc, tag) {
+            const iframe = document.getElementById('main-iframe');
+            const video = document.getElementById('main-video');
+            const videoSource = document.getElementById('video-source');
+            const videoTitle = document.getElementById('video-title');
+            const videoDesc = document.getElementById('video-desc-text');
+            const videoTag = document.getElementById('video-tag');
+
+            videoTitle.textContent = title;
+            videoDesc.textContent = desc;
+            videoTag.textContent = tag;
+
+            // Xử lý chuyển đổi giữa iframe YouTube và thẻ video HTML5
+            if (type === 'yt') {
+                video.pause();
+                video.style.display = 'none';
+                iframe.style.display = 'block';
+                iframe.src = url;
+            } else {
+                iframe.src = '';
+                iframe.style.display = 'none';
+                video.style.display = 'block';
+                videoSource.src = url;
+                video.load();
+                video.play();
+            }
+
+            // Đổi class active ở danh sách menu bên trái
+            const links = document.querySelectorAll('.video-link');
+            links.forEach(l => l.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
