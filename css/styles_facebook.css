@@ -1,0 +1,299 @@
+/* ========================================================
+   CSS FACEBOOK SIMPLIFIED CLONE (css/styles_facebook.css)
+   Fixed Header, Fixed Sidebars & Scrollable Feed
+   ======================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #050505;
+}
+
+/* ========================================================
+   1. FIXED HEADER
+   ======================================================== */
+.fb-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    color: #1877f2;
+    font-size: 32px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.search-box input {
+    background-color: #f0f2f5;
+    border: none;
+    outline: none;
+    padding: 9px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 220px;
+}
+
+.header-middle {
+    display: flex;
+    height: 100%;
+}
+
+.nav-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    text-decoration: none;
+    color: #65676b;
+    font-size: 20px;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-tab.active {
+    color: #1877f2;
+    border-bottom-color: #1877f2;
+}
+
+.nav-tab:hover {
+    background-color: #f2f2f2;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.circle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e4e6eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #050505;
+}
+
+.circle-btn:hover {
+    background-color: #d8dadf;
+}
+
+/* ========================================================
+   2. MAIN CONTAINER & FIXED SIDEBARS
+   ======================================================== */
+.main-layout {
+    display: flex;
+    margin-top: 56px; /* Cách ra để không bị đè bởi fixed header */
+    min-height: calc(100vh - 56px);
+}
+
+/* Sidebar trái (Cố định vị trí) */
+.sidebar-left {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 320px;
+    height: calc(100vh - 56px);
+    padding: 16px 8px;
+    overflow-y: auto;
+}
+
+/* Sidebar phải (Cố định vị trí) */
+.sidebar-right {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 320px;
+    height: calc(100vh - 56px);
+    padding: 16px 8px;
+    overflow-y: auto;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #050505;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    background-color: #e4e6eb;
+}
+
+.sidebar-icon {
+    font-size: 20px;
+    width: 28px;
+    text-align: center;
+}
+
+.sidebar-title {
+    color: #65676b;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 10px 12px 6px;
+}
+
+/* ========================================================
+   3. FEED CHÍNH GIỮA (Cuộn tự do)
+   ======================================================== */
+.feed-center {
+    flex: 1;
+    margin-left: 320px; /* Chừa khoảng trống cho sidebar trái */
+    margin-right: 320px; /* Chừa khoảng trống cho sidebar phải */
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 580px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+/* Khối đăng status */
+.create-post-top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #e4e6eb;
+    padding-bottom: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1877f2;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.create-post-input {
+    flex: 1;
+    background-color: #f0f2f5;
+    border-radius: 50px;
+    padding: 10px 16px;
+    color: #65676b;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.create-post-input:hover {
+    background-color: #e4e6eb;
+}
+
+.create-post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #65676b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* Khối bài viết (Post Card) */
+.post-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.post-author {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.post-time {
+    font-size: 12px;
+    color: #65676b;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.post-actions {
+    border-top: 1px solid #e4e6eb;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 6px;
+}
+
+/* Responsive khi thu nhỏ màn hình */
+@media (max-width: 1024px) {
+    .sidebar-right {
+        display: none;
+    }
+    .feed-center {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-left {
+        display: none;
+    }
+    .feed-center {
+        margin-left: 0;
+    }
+}

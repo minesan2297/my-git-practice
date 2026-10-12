@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Giao diện giản lược</title>
+    <link rel="stylesheet" href="css/styles_facebook.css">
+</head>
+<body>
+
+    <!-- ========================================================
+         1. FIXED HEADER Ở TRÊN CÙNG
+         ======================================================== -->
+    <header class="fb-header">
+        <div class="header-left">
+            <a href="#" class="logo">facebook</a>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm trên Facebook">
+            </div>
+        </div>
+
+        <nav class="header-middle">
+            <a href="#" class="nav-tab active" title="Bảng tin">🏠</a>
+            <a href="#" class="nav-tab" title="Video">📺</a>
+            <a href="#" class="nav-tab" title="Marketplace">🏪</a>
+            <a href="#" class="nav-tab" title="Nhóm">👥</a>
+            <a href="#" class="nav-tab" title="Trò chơi">🎮</a>
+        </nav>
+
+        <div class="header-right">
+            <a href="#" class="circle-btn" title="Menu">➕</a>
+            <a href="#" class="circle-btn" title="Messenger">💬</a>
+            <a href="#" class="circle-btn" title="Thông báo">🔔</a>
+            <a href="#" class="circle-btn" title="Tài khoản">👤</a>
+        </div>
+    </header>
+
+    <!-- ========================================================
+         2. BỐ CỤC CHÍNH (SIDEBAR TRÁI - FEED GIỮA - SIDEBAR PHẢI)
+         ======================================================== -->
+    <div class="main-layout">
+        
+        <!-- SIDEBAR TRÁI (CỐ ĐỊNH) -->
+        <aside class="sidebar-left">
+            <a href="#" class="sidebar-item">
+                <span class="avatar" style="width: 32px; height: 32px; font-size: 13px;">U</span>
+                <span>Nguyễn Văn A</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">👥</span>
+                <span>Bạn bè</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">🕒</span>
+                <span>Kỷ niệm</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">🔖</span>
+                <span>Đã lưu</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">🚩</span>
+                <span>Trang</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">👥</span>
+                <span>Nhóm</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">🏪</span>
+                <span>Marketplace</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">📺</span>
+                <span>Video</span>
+            </a>
+        </aside>
+
+        <!-- PHẦN NỘI DUNG CHÍNH (FEED CUỘN TỰ DO) -->
+        <main class="feed-center">
+            
+            <!-- Hộp tạo bài viết -->
+            <div class="card create-post">
+                <div class="create-post-top">
+                    <div class="avatar">U</div>
+                    <div class="create-post-input">Bạn đang nghĩ gì thế, A?</div>
+                </div>
+                <div class="create-post-actions">
+                    <div class="action-btn">🎥 Video trực tiếp</div>
+                    <div class="action-btn">📷 Ảnh/video</div>
+                    <div class="action-btn">😊 Cảm xúc/hoạt động</div>
+                </div>
+            </div>
+
+            <!-- Bài viết 1 -->
+            <article class="card post">
+                <div class="post-header">
+                    <div class="avatar">C</div>
+                    <div>
+                        <div class="post-author">CodeGym Academy</div>
+                        <div class="post-time">2 giờ trước • 🌐</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Chào mừng các bạn đến với bài tập thiết kế Fixed Header và Sidebar theo phong cách Facebook! Hãy luyện tập bố cục CSS position: fixed và flexbox thật nhuần nhuyễn nhé.
+                </div>
+                <div class="post-actions">
+                    <div class="action-btn">👍 Thích</div>
+                    <div class="action-btn">💬 Bình luận</div>
+                    <div class="action-btn">↗ Chia sẻ</div>
+                </div>
+            </article>
+
+            <!-- Bài viết 2 -->
+            <article class="card post">
+                <div class="post-header">
+                    <div class="avatar" style="background-color: #2b6cb0;">D</div>
+                    <div>
+                        <div class="post-author">Developer Community</div>
+                        <div class="post-time">5 giờ trước • 🌐</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Kỹ thuật CSS quan trọng khi làm Fixed Header: đừng quên cộng thêm margin-top hoặc padding-top cho phần thân (body/main) để nội dung không bị header che mất!
+                </div>
+                <div class="post-actions">
+                    <div class="action-btn">👍 Thích</div>
+                    <div class="action-btn">💬 Bình luận</div>
+                    <div class="action-btn">↗ Chia sẻ</div>
+                </div>
+            </article>
+
+            <!-- Bài viết 3 -->
+            <article class="card post">
+                <div class="post-header">
+                    <div class="avatar" style="background-color: #38a169;">F</div>
+                    <div>
+                        <div class="post-author">Frontend Master</div>
+                        <div class="post-time">Hôm qua • 🌐</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Tối ưu trải nghiệm cuộn: Khi phần nội dung chính giữa cuộn dài xuống dưới, header và 2 bên sidebar vẫn cố định vững vàng tại chỗ.
+                </div>
+                <div class="post-actions">
+                    <div class="action-btn">👍 Thích</div>
+                    <div class="action-btn">💬 Bình luận</div>
+                    <div class="action-btn">↗ Chia sẻ</div>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- SIDEBAR PHẢI (CỐ ĐỊNH) -->
+        <aside class="sidebar-right">
+            <div class="sidebar-title">Được tài trợ</div>
+            <a href="#" class="sidebar-item">
+                <span class="sidebar-icon">🚀</span>
+                <span>Khóa học Fullstack Web 2026</span>
+            </a>
+
+            <div class="sidebar-title" style="margin-top: 15px;">Người liên hệ</div>
+            <a href="#" class="sidebar-item">
+                <span class="avatar" style="width: 28px; height: 28px; font-size: 11px; background-color: #d69e2e;">B</span>
+                <span>Nguyễn Văn B (Online)</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="avatar" style="width: 28px; height: 28px; font-size: 11px; background-color: #e53e3e;">C</span>
+                <span>Trần Thị C (Online)</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <span class="avatar" style="width: 28px; height: 28px; font-size: 11px; background-color: #805ad5;">D</span>
+                <span>Lê Hoàng D (Vừa truy cập)</span>
+            </a>
+        </aside>
+
+    </div>
+
+</body>
+</html>
