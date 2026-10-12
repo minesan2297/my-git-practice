@@ -1,0 +1,242 @@
+/* ========================================================
+   CSS RESPONSIVE WEB DESIGN (RWD) LAYOUT (css/styles_rwd.css)
+   Header - Navigation - Left Aside - Section (Main) - Right Aside - Footer
+   ======================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    padding: 15px;
+}
+
+.rwd-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* 1. Header */
+.rwd-header {
+    background: linear-gradient(135deg, #2b6cb0, #1a365d);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.rwd-header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.rwd-header p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* 2. Top Navigation */
+.rwd-nav {
+    background-color: #2d3748;
+}
+
+.rwd-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rwd-nav ul li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.rwd-nav ul li a:hover,
+.rwd-nav ul li a.active {
+    background-color: #3182ce;
+}
+
+/* 3. Main Body Grid: Left Sidebar + Center Content + Right Sidebar */
+.rwd-main-wrapper {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Cột trái (Left Sidebar) */
+.rwd-aside-left {
+    flex: 1;
+    min-width: 200px;
+    background-color: #edf2f7;
+    border-radius: 6px;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+}
+
+.rwd-aside-left h3 {
+    color: #2b6cb0;
+    font-size: 17px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #cbd5e0;
+    padding-bottom: 6px;
+}
+
+.rwd-aside-left ul {
+    list-style: none;
+}
+
+.rwd-aside-left ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #cbd5e0;
+}
+
+.rwd-aside-left ul li a {
+    color: #4a5568;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.rwd-aside-left ul li a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+/* Cột giữa (Center Content) */
+.rwd-content-center {
+    flex: 3;
+    min-width: 320px;
+    background-color: #ffffff;
+}
+
+.content-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 22px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.content-card h2 {
+    color: #1a365d;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.content-card .meta {
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 14px;
+}
+
+.content-card p {
+    line-height: 1.75;
+    text-align: justify;
+    color: #4a5568;
+    margin-bottom: 12px;
+}
+
+/* Cột phải (Right Sidebar) */
+.rwd-aside-right {
+    flex: 1;
+    min-width: 200px;
+    background-color: #f7fafc;
+    border-radius: 6px;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+}
+
+.rwd-aside-right h3 {
+    color: #c53030;
+    font-size: 17px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #feb2b2;
+    padding-bottom: 6px;
+}
+
+.ad-box {
+    background-color: #fffaf0;
+    border: 1px dashed #dd6b20;
+    border-radius: 6px;
+    padding: 16px;
+    text-align: center;
+    color: #c05621;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* 4. Footer */
+.rwd-footer {
+    background-color: #1a202c;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 3px solid #3182ce;
+}
+
+/* ========================================================
+   5. RESPONSIVE WEB DESIGN (MEDIA QUERIES)
+   ======================================================== */
+
+/* Tablet (Màn hình vừa <= 992px): Đẩy cột phải xuống dưới cột trái và giữa */
+@media (max-width: 992px) {
+    .rwd-main-wrapper {
+        flex-wrap: wrap;
+    }
+
+    .rwd-aside-left {
+        flex: 1;
+        min-width: 220px;
+    }
+
+    .rwd-content-center {
+        flex: 2;
+    }
+
+    .rwd-aside-right {
+        flex: 100%; /* Chiếm trọn hàng dưới */
+    }
+}
+
+/* Mobile (Màn hình điện thoại <= 600px): Xếp chồng toàn bộ thành 1 cột */
+@media (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+
+    .rwd-main-wrapper {
+        flex-direction: column;
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .rwd-nav ul {
+        flex-direction: column;
+    }
+
+    .rwd-nav ul li a {
+        text-align: center;
+        border-bottom: 1px solid #4a5568;
+    }
+
+    .rwd-aside-left,
+    .rwd-content-center,
+    .rwd-aside-right {
+        min-width: 100%;
+    }
+}

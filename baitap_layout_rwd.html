@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Bài tập] Tạo layout với Responsive Web Design (RWD)</title>
+    <link rel="stylesheet" href="css/styles_rwd.css">
+</head>
+<body>
+
+    <div class="rwd-container">
+        
+        <!-- 1. HEADER (Phần đầu trang) -->
+        <header class="rwd-header">
+            <h1>Responsive Web Design (RWD) Portal</h1>
+            <p>Hệ thống bố cục thích ứng linh hoạt đa màn hình (Desktop - Tablet - Mobile)</p>
+        </header>
+
+        <!-- 2. NAVIGATION (Thanh điều hướng) -->
+        <nav class="rwd-nav">
+            <ul>
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#">Tin Tức</a></li>
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="#">Dịch Vụ</a></li>
+                <li><a href="#">Diễn Đàn</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+            </ul>
+        </nav>
+
+        <!-- 3. MAIN BODY WRAPPER (Bố cục 3 cột) -->
+        <div class="rwd-main-wrapper">
+            
+            <!-- CỘT TRÁI (LEFT ASIDE/SIDEBAR) -->
+            <aside class="rwd-aside-left">
+                <h3>Danh Mục Khóa Học</h3>
+                <ul>
+                    <li><a href="#">HTML5 &amp; CSS3 Căn Bản</a></li>
+                    <li><a href="#">CSS Grid &amp; Flexbox</a></li>
+                    <li><a href="#">Responsive Web Design</a></li>
+                    <li><a href="#">JavaScript Nâng Cao</a></li>
+                    <li><a href="#">Cơ Sở Dữ Liệu SQL</a></li>
+                    <li><a href="#">Node.js &amp; Express</a></li>
+                </ul>
+            </aside>
+
+            <!-- CỘT GIỮA (MAIN SECTION / CONTENT) -->
+            <main class="rwd-content-center">
+                
+                <article class="content-card">
+                    <h2>Nguyên Lý Cốt Lõi Của Responsive Web Design</h2>
+                    <div class="meta">Tác giả: Tech Lead • Cập nhật: 12/10/2026</div>
+                    <p>
+                        Responsive Web Design (RWD) là phương pháp tiếp cận thiết kế web giúp trang web có thể tự động thay đổi kích thước, ẩn, thu nhỏ hoặc phóng to nội dung để hiển thị tối ưu trên tất cả các loại thiết bị từ điện thoại di động, máy tính bảng đến máy tính để bàn.
+                    </p>
+                    <p>
+                        Ba trụ cột chính của RWD bao gồm: Lưới linh hoạt (Fluid Grids), Hình ảnh linh hoạt (Flexible Images) và Media Queries trong CSS3.
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <h2>Tối Ưu Trải Nghiệm Người Dùng Đa Thiết Bị</h2>
+                    <div class="meta">Chuyên mục: Frontend Architecture • Đọc trong 3 phút</div>
+                    <p>
+                        Trên màn hình máy tính lớn (Desktop), người dùng có đủ không gian để xem bố cục 3 cột trực quan. Tuy nhiên khi xem trên thiết bị di động với màn hình hẹp, hệ thống sử dụng CSS Media Queries để tự động xếp chồng các cột theo chiều dọc, đảm bảo phông chữ vừa vặn và không xuất hiện thanh cuộn ngang khó chịu.
+                    </p>
+                </article>
+
+            </main>
+
+            <!-- CỘT PHẢI (RIGHT ASIDE/SIDEBAR) -->
+            <aside class="rwd-aside-right">
+                <h3>Thông Tin Bổ Sung</h3>
+                <div class="ad-box">
+                    <strong>Ưu Đãi Đặc Biệt</strong>
+                    <p>Giảm 30% học phí khóa học Frontend Master trong tháng này!</p>
+                </div>
+
+                <div class="ad-box" style="background-color: #f0fff4; border-color: #38a169; color: #276749;">
+                    <strong>Hội Thảo Công Nghệ</strong>
+                    <p>Web Performance Summit 2026 sẽ diễn ra vào thứ Bảy tuần tới.</p>
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- 4. FOOTER (Chân trang) -->
+        <footer class="rwd-footer">
+            <p>&copy; 2026 Responsive Web Design Portal. Thiết kế chuẩn W3C &amp; CodeGym Academy.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
