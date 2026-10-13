@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeChronicle - Tạp Chí Nghệ Thuật & Kiến Trúc</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #212529;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* ========================================================
+           VÙNG 1: AUTHOR INFO (FLEXBOX - VERTICAL ALIGNMENT)
+           Xóa sạch float, dùng Flexbox căn giữa dọc align-items: center
+           ======================================================== */
+        .author-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .author-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #dee2e6;
+        }
+
+        .author-info h5 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .author-info small {
+            color: #6c757d;
+        }
+
+        /* ========================================================
+           VÙNG 2: MOSAIC GALLERY (CSS GRID - 2D LAYOUT)
+           Xóa position: absolute và height: 400px cứng!
+           Dùng CSS Grid: Cột trái 2fr, cột phải 1fr, ảnh chính span 2 hàng.
+           ======================================================== */
+        .mosaic-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, 220px);
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+
+        .mosaic-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #f1f3f5;
+        }
+
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .mosaic-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .mosaic-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 14px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        /* Ảnh chính: Chiếm trọn 2 hàng ở cột bên trái */
+        .photo-main {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        /* Responsive cho Mosaic Gallery */
+        @media (max-width: 768px) {
+            .mosaic-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .photo-main {
+                grid-column: auto;
+                grid-row: auto;
+                height: 280px;
+            }
+            .mosaic-item {
+                height: 200px;
+            }
+        }
+
+        /* Nội dung bài viết */
+        .article-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #343a40;
+            margin-bottom: 45px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container my-5">
+        
+        <!-- TIÊU ĐỀ BÀI BÁO -->
+        <header class="mb-4">
+            <span class="badge bg-dark mb-2">Art &amp; Design</span>
+            <h1 class="display-5 fw-bold">Khám Phá Nghệ Thuật Khảm Hiện Đại: Khi Truyền Thống Hòa Quyện Cùng Tương Lai</h1>
+        </header>
+
+        <!-- ========================================================
+             VÙNG 1: THANH TÁC GIẢ (FLEXBOX CHUẨN MỰC)
+             ======================================================== -->
+        <div class="author-section">
+            <div class="author-meta">
+                <img class="author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Jane Doe">
+                <div class="author-info">
+                    <h5>Jane Doe</h5>
+                    <small>Senior Curator • Published on Oct 25, 2026 • 5 min read</small>
+                </div>
+            </div>
+
+            <!-- Các nút chia sẻ căn chỉnh hoàn hảo cùng hàng -->
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-outline-primary">Share Facebook</button>
+                <button class="btn btn-sm btn-outline-info">Tweet</button>
+                <button class="btn btn-sm btn-outline-secondary">Copy Link</button>
+            </div>
+        </div>
+
+        <!-- ========================================================
+             VÙNG 2: THƯ VIỆN ẢNH KHẢM (CSS GRID MOSAIC)
+             ======================================================== -->
+        <div class="mosaic-gallery">
+            <!-- Ảnh chính (span 2 hàng) -->
+            <div class="mosaic-item photo-main">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80" alt="Bức tranh chính">
+                <div class="mosaic-caption">Kiệt tác ánh sáng và cấu trúc hình khối đương đại</div>
+            </div>
+
+            <!-- Ảnh phụ 1 -->
+            <div class="mosaic-item photo-sub-1">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80" alt="Chi tiết phụ 1">
+                <div class="mosaic-caption">Họa tiết màu sắc tương phản</div>
+            </div>
+
+            <!-- Ảnh phụ 2 -->
+            <div class="mosaic-item photo-sub-2">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Chi tiết phụ 2">
+                <div class="mosaic-caption">Điểm nhấn trừu tượng</div>
+            </div>
+        </div>
+
+        <!-- NỘI DUNG BÀI VIẾT (Không còn bị đè lấn) -->
+        <article class="article-body">
+            <p>
+                Nghệ thuật khảm (Mosaic) là một trong những loại hình sáng tạo lâu đời nhất của nhân loại. Bằng cách tái cấu trúc bố cục bằng <strong>CSS Grid</strong> thay vì <code>position: absolute</code>, các bức ảnh giờ đây có chiều cao linh hoạt tự nhiên trong luồng hiển thị (Flow Layout). Khi người dùng co giãn màn hình điện thoại, toàn bộ các bức tranh tự động gập xuống thành 1 cột mượt mà, và đoạn văn bản này được bảo vệ 100%, không bao giờ bị che khuất hay đè bẹp.
+            </p>
+        </article>
+
+        <!-- ========================================================
+             VÙNG 3: BÀI VIẾT ĐỀ XUẤT (BOOTSTRAP 5 GRID SYSTEM)
+             12 cột chuẩn: col-12 (Mobile: 1), col-md-6 (Tablet: 2), col-lg-3 (Desktop: 4)
+             ======================================================== -->
+        <section class="mt-5 pt-4 border-top">
+            <h3 class="fw-bold mb-4">Recommended Articles</h3>
+            
+            <div class="row g-4">
+                
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=400&q=80" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Article 1">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Exhibition</span>
+                            <h6 class="card-title fw-bold">Sắc Màu Điêu Khắc Đương Đại</h6>
+                            <p class="card-text text-muted small">Cái nhìn toàn diện về phong trào biểu hiện mới trong không gian triển lãm...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Article 2">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Painting</span>
+                            <h6 class="card-title fw-bold">Vẻ Đẹp Sơn Dầu Thời Kỳ Mới</h6>
+                            <p class="card-text text-muted small">Phân tích kỹ thuật pha trộn màu nước và chất liệu hữu cơ của danh họa thế kỷ...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=400&q=80" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Article 3">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Architecture</span>
+                            <h6 class="card-title fw-bold">Hình Khối Đô Thị Tối Giản</h6>
+                            <p class="card-text text-muted small">Khi không gian sống trở thành tấm toan vẽ cho tư duy tối giản thanh lịch...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Article 4">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Digital Art</span>
+                            <h6 class="card-title fw-bold">Kỷ Nguyên Trí Tuệ Nhân Tạo</h6>
+                            <p class="card-text text-muted small">Tác động của công nghệ thuật toán đối với cảm hứng sáng tác của nghệ sĩ trẻ...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
