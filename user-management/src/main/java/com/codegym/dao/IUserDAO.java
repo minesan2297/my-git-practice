@@ -13,4 +13,5 @@ public interface IUserDAO {
     List<User> sortByName(String order);
     User getUserById(int id);
     void insertUserStore(User user) throws Exception;
+    void addUserTransaction(User user, int[] permissionIds) throws Exception;
 }
