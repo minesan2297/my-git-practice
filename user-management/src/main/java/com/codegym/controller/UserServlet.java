@@ -81,12 +81,37 @@ public class UserServlet extends HttpServlet {
                 case "test-use-tran":
                     testUseTran(request, response);
                     break;
+                case "test-add-user-fail":
+                    testAddUserFail(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
             }
         } catch (Exception ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void testAddUserFail(HttpServletRequest request, HttpServletResponse response) {
+        User testUser = new User("TestFailUser", "testfail@codegym.vn", "Vietnam");
+        int[] permissions = {1, 2};
+        response.setContentType("text/html;charset=UTF-8");
+        try {
+            System.out.println("Đang kiểm thử addUserTransactionFail (cố tình gây lỗi SQL)...");
+            userDAO.addUserTransactionFail(testUser, permissions);
+            response.getWriter().println("<h2>Thành công (Không kỳ vọng)</h2>");
+        } catch (Exception e) {
+            System.out.println("Bắt Exception từ servlet: " + e.getMessage());
+            try {
+                response.getWriter().println("<h2 style='color: red;'>Kiểm thử Transaction Rollback khi có lỗi SQL!</h2>");
+                response.getWriter().println("<p>Đã cố tình tạo lỗi SQL khi chèn quyền hạn: <code>" + e.getMessage() + "</code></p>");
+                response.getWriter().println("<p style='color: green; font-weight: bold;'>KẾT QUẢ: Transaction đã thực hiện <strong>ROLLBACK</strong> thành công!</p>");
+                response.getWriter().println("<p>Hãy kiểm tra lệnh <code>SELECT * FROM users WHERE name='TestFailUser';</code> trong MySQL để thấy người dùng không hề bị chèn rác.</p>");
+                response.getWriter().println("<p><a href='users'>Quay lại danh sách User</a></p>");
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 

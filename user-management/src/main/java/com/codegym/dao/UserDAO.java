@@ -267,6 +267,77 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
+    public void addUserTransactionFail(User user, int[] permissionIds) throws SQLException {
+        Connection connection = null;
+        PreparedStatement pstmtUser = null;
+        PreparedStatement pstmtAssignment = null;
+        ResultSet rs = null;
+        try {
+            connection = getConnection();
+            // 1. Tắt auto-commit để bắt đầu Transaction
+            connection.setAutoCommit(false);
+
+            // 2. Chèn dữ liệu vào bảng users
+            String insertUserSql = "INSERT INTO users (name, email, country) VALUES (?, ?, ?)";
+            pstmtUser = connection.prepareStatement(insertUserSql, Statement.RETURN_GENERATED_KEYS);
+            pstmtUser.setString(1, user.getName());
+            pstmtUser.setString(2, user.getEmail());
+            pstmtUser.setString(3, user.getCountry());
+            pstmtUser.executeUpdate();
+
+            // 3. Lấy ID của user vừa được chèn
+            rs = pstmtUser.getGeneratedKeys();
+            int userId = 0;
+            if (rs.next()) {
+                userId = rs.getInt(1);
+            }
+
+            // 4. Cố tình gây lỗi SQL ở bước chèn bảng user_permission:
+            // Cố tình viết sai tên bảng thành `non_existent_table` để gây ra lỗi SQLException
+            String invalidInsertSql = "INSERT INTO non_existent_table (user_id, permission_id) VALUES (?, ?)";
+            pstmtAssignment = connection.prepareStatement(invalidInsertSql);
+            if (permissionIds != null && permissionIds.length > 0) {
+                for (int permissionId : permissionIds) {
+                    pstmtAssignment.setInt(1, userId);
+                    pstmtAssignment.setInt(2, permissionId);
+                    pstmtAssignment.executeUpdate(); // Sẽ ném SQLException tại đây
+                }
+            } else {
+                pstmtAssignment.setInt(1, userId);
+                pstmtAssignment.setInt(2, 1);
+                pstmtAssignment.executeUpdate(); // Sẽ ném SQLException tại đây
+            }
+
+            // 5. Nếu không có lỗi thì mới commit (đoạn này sẽ không tới được)
+            connection.commit();
+            System.out.println("Transaction thành công!");
+        } catch (SQLException e) {
+            // 6. Bắt được lỗi SQL -> Thực hiện ROLLBACK
+            System.out.println(">>> ĐÃ BẮT ĐƯỢC LỖI SQL TRONG TRANSACTION <<<");
+            System.out.println("Thông báo lỗi: " + e.getMessage());
+            try {
+                if (connection != null) {
+                    connection.rollback();
+                    System.out.println(">>> TRANSACTION ĐÃ BỊ ROLLBACK THÀNH CÔNG! Bảng users không bị ghi dữ liệu rác. <<<");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+            throw e;
+        } finally {
+            // 7. Dọn dẹp tài nguyên
+            if (rs != null) rs.close();
+            if (pstmtUser != null) pstmtUser.close();
+            if (pstmtAssignment != null) pstmtAssignment.close();
+            if (connection != null) {
+                connection.setAutoCommit(true);
+                connection.close();
+            }
+        }
+    }
+
+    @Override
     public void insertUpdateWithoutTransaction() {
         try (Connection conn = getConnection();
              Statement statement = conn.createStatement();
