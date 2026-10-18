@@ -302,4 +302,54 @@ public class UserDAO implements IUserDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        try (Connection conn = getConnection();
+             Statement statement = conn.createStatement();
+             PreparedStatement psInsert = conn.prepareStatement(SQL_INSERT);
+             PreparedStatement psUpdate = conn.prepareStatement(SQL_UPDATE)) {
+
+            statement.execute(SQL_TABLE_DROP);
+            statement.execute(SQL_TABLE_CREATE);
+
+            // ==========================================
+            // 1. BẮT ĐẦU TRANSACTION BLOCK
+            // Tắt chế độ lưu tự động (mặc định là true)
+            // ==========================================
+            conn.setAutoCommit(false);
+
+            // 2. Chạy danh sách lệnh Insert
+            psInsert.setString(1, "Quynh");
+            psInsert.setBigDecimal(2, new BigDecimal(10));
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            psInsert.execute();
+
+            psInsert.setString(1, "Ngan");
+            psInsert.setBigDecimal(2, new BigDecimal(20));
+            psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            psInsert.execute();
+
+            // 3. Chạy lệnh Update
+            // Để ứng dụng hoạt động chuẩn xác theo Bước 4 (Lần 2), gán index 1:
+            psUpdate.setBigDecimal(1, new BigDecimal(999.99));
+            psUpdate.setString(2, "Quynh");
+            psUpdate.execute();
+
+            // ==========================================
+            // 4. KẾT THÚC TRANSACTION BLOCK
+            // Nếu code chạy trót lọt đến đây, tiến hành ghi dữ liệu
+            // ==========================================
+            conn.commit();
+
+            // Thói quen tốt: Bật lại chế độ auto-commit về mặc định
+            conn.setAutoCommit(true);
+            System.out.println("Transaction thành công và đã được commit!");
+
+        } catch (Exception e) {
+            System.out.println("Lỗi xảy ra, Transaction sẽ tự động huỷ bỏ (rollback) khi đóng kết nối!");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
