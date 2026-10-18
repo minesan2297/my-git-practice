@@ -16,4 +16,7 @@ public interface IUserDAO {
     void addUserTransaction(User user, int[] permissionIds) throws Exception;
     void insertUpdateWithoutTransaction();
     void insertUpdateUseTransaction();
+    List<User> getAllUsersStore();
+    boolean updateUserStore(User user) throws Exception;
+    boolean deleteUserStore(int id) throws Exception;
 }
