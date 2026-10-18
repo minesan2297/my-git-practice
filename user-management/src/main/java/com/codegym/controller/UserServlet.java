@@ -75,12 +75,29 @@ public class UserServlet extends HttpServlet {
                 case "sort":
                     sortUserByName(request, response);
                     break;
+                case "test-without-tran":
+                    testWithoutTran(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
             }
         } catch (Exception ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        // Gọi phương thức cố tình sinh lỗi
+        userDAO.insertUpdateWithoutTransaction();
+        System.out.println("Đã chạy xong hàm testWithoutTran. Hãy kiểm tra database!");
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            response.getWriter().println("<h2>Đã chạy xong hàm testWithoutTran!</h2>");
+            response.getWriter().println("<p>Hãy kiểm tra log console server và chạy lệnh <code>SELECT * FROM Employee;</code> trong MySQL để quan sát kết quả.</p>");
+            response.getWriter().println("<p><a href='users'>Quay lại danh sách User</a></p>");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
